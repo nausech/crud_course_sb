@@ -1,5 +1,6 @@
 package com.narus.crudcourse.services;
 
+import com.narus.crudcourse.dtos.CourseRequest;
 import com.narus.crudcourse.entities.Course;
 import com.narus.crudcourse.repositories.CourseRepository;
 
@@ -39,7 +40,7 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     @Transactional
-    public Optional<Course> update(Long id, Course course){
+    public Optional<Course> update(Long id, CourseRequest course){
         Optional<Course> courseOptional = repository.findById(id);
         if(courseOptional.isPresent()){
             Course courseDb = courseOptional.orElseThrow();
